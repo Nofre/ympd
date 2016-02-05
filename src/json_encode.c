@@ -34,6 +34,13 @@ int json_emit_quoted_str(char *buf, int buf_len, const char *str) {
 
 #define EMIT(x) do { if (j < buf_len) buf[j++] = x; } while (0)
 
+  if (str == NULL) {
+    EMIT('"');
+    EMIT(' ');
+    EMIT('"');
+    return 3;
+  }
+
   EMIT('"');
   while ((ch = str[i++]) != '\0' && j < buf_len) {
     switch (ch) {
