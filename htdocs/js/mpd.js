@@ -31,6 +31,7 @@ var dirble_selected_cat = "";
 var dirble_catid = "";
 var dirble_page = 1;
 var isTouch = Modernizr.touch ? 1 : 0;
+var bottom_bar_hidden = 0;
 
 var app = $.sammy(function() {
 
@@ -997,15 +998,27 @@ function dirble_load_stations() {
 }
 
 function hide_bar() {
-    if ($('#container-bottom').hasClass('hide')) {
-        $('#container-bottom').removeClass('hide');
+    if (bottom_bar_hidden) {
+        $('.hide_bottom_bar').removeClass('hide');
+        $('#artist').removeClass("hide");
+        $('#album').removeClass("hide");
+        $('#col1').removeClass('col-md-12');
+        $('#col1').addClass('col-md-3');
         $('#hide_button').removeClass('glyphicon-chevron-up');
         $('#hide_button').addClass('glyphicon-chevron-down');
+        bottom_bar_hidden = 0;
     }
     else {
-        $('#container-bottom').addClass('hide');
+        $('.hide_bottom_bar').addClass('hide');
+        if (window.innerHeight > window.innerWidth) {
+            $('#artist').addClass("hide");
+            $('#album').addClass("hide");
+        }
+        $('#col1').removeClass('col-md-3');
+        $('#col1').addClass('col-md-12');
         $('#hide_button').removeClass('glyphicon-chevron-down');
         $('#hide_button').addClass('glyphicon-chevron-up');
+        bottom_bar_hidden = 1;
     }
 }
 
@@ -1021,6 +1034,17 @@ function detectOrientation() {
         $('#salamisandwich th:nth-child(3)').addClass('hide');
         $('#salamisandwich th:nth-child(4)').addClass('hide');
         $('#salamisandwich th:nth-child(5)').addClass('hide');
+
+        if (bottom_bar_hidden) {
+            $('#artist').addClass('hide');
+            $('#album').addClass('hide');
+        }
+
+        $('#col2').removeClass('col-xs-9');
+        $('#col3').removeClass('col-xs-3');
+
+        $('#col2').addClass('col-xs-7');
+        $('#col3').addClass('col-xs-5');
     }
     else {
         $('#salamisandwich td:nth-child(3)').removeClass('hide');
@@ -1029,5 +1053,16 @@ function detectOrientation() {
         $('#salamisandwich th:nth-child(3)').removeClass('hide');
         $('#salamisandwich th:nth-child(4)').removeClass('hide');
         $('#salamisandwich th:nth-child(5)').removeClass('hide');
+
+        if (bottom_bar_hidden) {
+            $('#artist').removeClass('hide');
+            $('#album').removeClass('hide');
+        }
+
+        $('#col2').removeClass('col-xs-7');
+        $('#col3').removeClass('col-xs-5');
+
+        $('#col2').addClass('col-xs-9');
+        $('#col3').addClass('col-xs-3');
     }
 }

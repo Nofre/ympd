@@ -64,22 +64,22 @@
 
     <div id="container-bottom" class="container-fluid" style="margin-top: 1em; margin-left:1em;">
       <div class="row">
-        <div class="col-md-3 col-xs-12" style="margin-bottom: 1em; font-size:120%;">
+        <div id="col1" class="col-md-3 col-xs-12" style="margin-bottom: 1em; font-size:120%;">
             <span id="currenttrack"></span>
-            <br/>
+            <br class="hide_bottom_bar"/>
             <span id="album"></span>
             <span id="artist"></span>
         </div>
 
-        <div class="col-md-4 col-xs-7" style="margin-top:1em;">
+        <div id="col2" class="col-md-4 col-xs-7 hide_bottom_bar" style="margin-top:1em;">
           <div id="progressbar"></div>
         </div>
 
-        <div class="col-md-1 col-xs-5" style="margin-top:0.7em;">
+        <div id="col3" class="col-md-1 col-xs-5 hide_bottom_bar" style="margin-top:0.7em;">
           <p id="counter" class="text">&nbsp;&nbsp;</p>
         </div>
 
-        <div class="col-md-4 col-xs-12 btn-toolbar navbar-btn" style="text-align: center; font-size:200%">
+        <div id="col4" class="col-md-4 col-xs-12 btn-toolbar navbar-btn hide_bottom_bar" style="text-align: center; font-size:200%">
           <span class="glyphicon glyphicon-backward" style="cursor: pointer;" onclick="socket.send('MPD_API_SET_PREV');"></span>
           <span id="stop-icon" class="glyphicon glyphicon-stop" style="cursor: pointer; margin-left:1em; margin-right:1em;" onclick="socket.send('MPD_API_SET_STOP');"></span>
           <span id="play-icon" class="glyphicon glyphicon-pause" style="cursor: pointer; margin-right:1em;" onclick="clickPlay();"></span>
