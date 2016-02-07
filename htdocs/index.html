@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ympd - fast and lightweight MPD webclient">
   <meta name="author" content="andy@ndyk.de">
+  <link rel="manifest" href="manifest.webapp">
 
   <title>ympd</title>
 
@@ -75,11 +76,11 @@
           <div id="progressbar"></div>
         </div>
 
-        <div id="col3" class="col-md-1 col-xs-5 hide_bottom_bar" style="margin-top:0.7em;">
+        <div id="col3" class="col-md-2 col-xs-5 hide_bottom_bar" style="margin-top:0.7em;">
           <p id="counter" class="text">&nbsp;&nbsp;</p>
         </div>
 
-        <div id="col4" class="col-md-4 col-xs-12 btn-toolbar navbar-btn hide_bottom_bar" style="text-align: center; font-size:200%">
+        <div id="col4" class="col-md-3 col-xs-12 btn-toolbar navbar-btn hide_bottom_bar" style="text-align: center; font-size:200%">
           <span class="glyphicon glyphicon-backward" style="cursor: pointer;" onclick="socket.send('MPD_API_SET_PREV');"></span>
           <span id="stop-icon" class="glyphicon glyphicon-stop" style="cursor: pointer; margin-left:1em; margin-right:1em;" onclick="socket.send('MPD_API_SET_STOP');"></span>
           <span id="play-icon" class="glyphicon glyphicon-pause" style="cursor: pointer; margin-right:1em;" onclick="clickPlay();"></span>
