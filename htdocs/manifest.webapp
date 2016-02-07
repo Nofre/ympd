@@ -1,0 +1,6 @@
+{
+  "name": "ympd",
+  "description": "Standalone MPD Web GUI written in C, utilizing Websockets and Bootstrap/JS",
+  "start_url": "/",
+  "display": "standalone"
+}
